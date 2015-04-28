@@ -20,9 +20,9 @@ OBJDIR_RELEASE = $(OBJDIR)/Release
 BINDIR_RELEASE = $(BINDIR)/Release
 OUT_RELEASE = $(BINDIR_RELEASE)/Chess
 
-OBJ_DEBUG = $(OBJDIR_DEBUG)/Main.o
+OBJ_DEBUG = $(OBJDIR_DEBUG)/Main.o $(OBJDIR_DEBUG)/Piece.o
 
-OBJ_RELEASE = $(OBJDIR_RELEASE)/Main.o
+OBJ_RELEASE = $(OBJDIR_RELEASE)/Main.o $(OBJDIR_RELEASE)/Piece.o
 
 all: debug release
 
@@ -39,7 +39,10 @@ Debug: debug
 out_debug: $(OBJ_DEBUG)
 	$(LD) -o $(OUT_DEBUG) $(OBJ_DEBUG) $(LIBS_DEBUG)
 
-$(OBJDIR_DEBUG)/%.o: %.cpp
+$(OBJDIR_DEBUG)/Main.o: Main.cpp
+	$(CXX) -c $< -o $@ $(CFLAGS_DEBUG)
+
+$(OBJDIR_DEBUG)/%.o: $(SRCDIR_DEBUG)/%.cpp
 	$(CXX) -c $< -o $@ $(CFLAGS_DEBUG)
 
 clean_debug:
@@ -57,7 +60,10 @@ Release: release
 out_release: before_release $(OBJ_RELEASE)
 	$(LD) -o $(OUT_RELEASE) $(OBJ_RELEASE) $(LIBS_RELEASE)
 
-$(OBJDIR_RELEASE)/%.o: %.cpp
+$(OBJDIR_RELEASE)/Main.o: Main.cpp
+	$(CXX) -c $< -o $@ $(CFLAGS_RELEASE)
+
+$(OBJDIR_RELEASE)/%.o: $(SRCDIR_RELEASE)/%.cpp
 	$(CXX) -c $< -o $@ $(CFLAGS_RELEASE)
 
 clean_release:
