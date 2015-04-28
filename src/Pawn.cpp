@@ -8,10 +8,19 @@ std::string Pawn::toString()
 
 void Pawn::check()
 {
-    BOARD[yPos * SIZE + xPos] = true;
+    if(BOARD[yPos * SIZE + xPos] == 0)
+    {
+        BOARD[yPos * SIZE + xPos] = ID;
+    }
     if(yPos > 0)
     {
-        if(xPos > 0) {BOARD[(yPos - 1) * SIZE + (xPos - 1)] = true;}
-        if(xPos < (SIZE - 1)) {BOARD[(yPos - 1) * SIZE + (xPos + 1)] = true;}
+        if(xPos > 0 and BOARD[(yPos - 1) * SIZE + (xPos - 1)] == 0)
+        {
+            BOARD[(yPos - 1) * SIZE + (xPos - 1)] = ID;
+        }
+        if(xPos < (SIZE - 1) and BOARD[(yPos - 1) * SIZE + (xPos + 1)] == 0)
+        {
+            BOARD[(yPos - 1) * SIZE + (xPos + 1)] = ID;
+        }
     }
 }

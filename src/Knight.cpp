@@ -8,27 +8,52 @@ std::string Knight::toString()
 
 void Knight::check()
 {
-    BOARD[yPos * SIZE + xPos] = true;
+    if(BOARD[yPos * SIZE + xPos] == 0)
+    {
+        BOARD[yPos * SIZE + xPos] = ID;
+    }
     if(yPos > 0)
     {
         if(yPos > 1)
         {
-            if(xPos > 0) {BOARD[(yPos - 2) * SIZE + (xPos - 1)] = true;}
-            if(xPos < (SIZE - 1)) {BOARD[(yPos - 2) * SIZE + (xPos + 1)] = true;}
+            if(xPos > 0 and BOARD[(yPos - 2) * SIZE + (xPos - 1)] == 0)
+            {
+                BOARD[(yPos - 2) * SIZE + (xPos - 1)] = ID;
+            }
+            if(xPos < (SIZE - 1) and BOARD[(yPos - 2) * SIZE + (xPos + 1)] == 0)
+            {
+                BOARD[(yPos - 2) * SIZE + (xPos + 1)] = ID;
+            }
         }
-        if(xPos > 1) {BOARD[(yPos - 1) * SIZE + (xPos - 2)] = true;}
-        if(xPos < (SIZE - 2)) {BOARD[(yPos - 1) * SIZE + (xPos + 2)] = true;}
-        
+        if(xPos > 1 and BOARD[(yPos - 1) * SIZE + (xPos - 2)] == 0)
+        {
+            BOARD[(yPos - 1) * SIZE + (xPos - 2)] = ID;
+        }
+        if(xPos < (SIZE - 2) and BOARD[(yPos - 1) * SIZE + (xPos + 2)] == 0)
+        {
+            BOARD[(yPos - 1) * SIZE + (xPos + 2)] = ID;
+        }
     }
     if(yPos < (SIZE - 1))
     {
         if(yPos < (SIZE - 2))
         {
-            if(xPos > 0) {BOARD[(yPos + 2) * SIZE + (xPos - 1)] = true;}
-            if(xPos < (SIZE - 1)) {BOARD[(yPos + 2) * SIZE + (xPos + 1)] = true;}
+            if(xPos > 0 and BOARD[(yPos + 2) * SIZE + (xPos - 1)] == 0)
+            {
+                BOARD[(yPos + 2) * SIZE + (xPos - 1)] = ID;
+            }
+            if(xPos < (SIZE - 1) and BOARD[(yPos + 2) * SIZE + (xPos + 1)] == 0)
+            {
+                BOARD[(yPos + 2) * SIZE + (xPos + 1)] = ID;
+            }
         }
-        if(xPos > 1) {BOARD[(yPos + 1) * SIZE + (xPos - 2)] = true;}
-        if(xPos < (SIZE - 2)) {BOARD[(yPos + 1) * SIZE + (xPos + 2)] = true;}
-        
+        if(xPos > 1 and BOARD[(yPos + 1) * SIZE + (xPos - 2)] == 0)
+        {
+            BOARD[(yPos + 1) * SIZE + (xPos - 2)] = ID;
+        }
+        if(xPos < (SIZE - 2) and BOARD[(yPos + 1) * SIZE + (xPos + 2)] == 0)
+        {
+            BOARD[(yPos + 1) * SIZE + (xPos + 2)] = ID;
+        }
     }
 }

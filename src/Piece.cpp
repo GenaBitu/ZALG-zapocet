@@ -1,7 +1,12 @@
 #include "../Main.hpp"
 using namespace std;
 
-Piece::Piece() : xPos{}, yPos{} {}
+unsigned int Piece::usedIDs = 1;
+
+Piece::Piece() : xPos{}, yPos{}, ID{usedIDs}
+{
+    usedIDs++;
+}
 
 void Piece::put(unsigned int xPosition, unsigned int yPosition)
 {
@@ -15,18 +20,28 @@ void Piece::put(unsigned int xPosition, unsigned int yPosition)
     check();
 }
 
+void Piece::erase()
+{
+    for(unsigned int i{0}; i < SIZE * SIZE; i++)
+    {
+        if(BOARD[i] == ID)
+        {
+            BOARD[i] = 0;
+        }
+    }
+}
+
 bool Piece::tryPut(unsigned int xPosition, unsigned int yPosition)
 {
-    if(BOARD[yPosition * SIZE + xPosition])
-    {
-        return false;
-    }
-    else
+    if(BOARD[yPosition * SIZE + xPosition] == 0)
     {
         put(xPosition, yPosition);
         return true;
     }
+    else
+    {
+        return false;
+    }
 }
-
 
 Piece::~Piece() {}

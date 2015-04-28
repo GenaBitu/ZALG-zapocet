@@ -10,7 +10,13 @@ void Rook::check()
 {
     for(unsigned int i{0}; i < SIZE ; i++)
     {
-        BOARD[i * SIZE + xPos] = true;
-        BOARD[yPos * SIZE + i] = true;
+        if(BOARD[i * SIZE + xPos] == 0)
+        {
+            BOARD[i * SIZE + xPos] = ID;
+        }
+        if(BOARD[yPos * SIZE + i] == 0)
+        {
+            BOARD[yPos * SIZE + i] = ID;
+        }
     }
 }

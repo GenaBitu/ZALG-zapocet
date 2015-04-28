@@ -12,9 +12,11 @@
 #include "include/Rook.hpp"
 
 extern unsigned int SIZE;
-extern bool* BOARD;
+extern unsigned int* BOARD;
 extern std::vector<Piece*> PIECES;
 
+void printChecks();
 void printBoard();
+bool populate(unsigned int current = 0);
 
 #endif // MAIN_HPP

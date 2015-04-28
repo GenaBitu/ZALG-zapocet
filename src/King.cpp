@@ -8,19 +8,46 @@ std::string King::toString()
 
 void King::check()
 {
-    BOARD[yPos * SIZE + xPos] = true;
+    if(BOARD[yPos * SIZE + xPos] == 0)
+    {
+        BOARD[yPos * SIZE + xPos] = ID;
+    }
     if(yPos > 0)
     {
-        if(xPos > 0) {BOARD[(yPos - 1) * SIZE + (xPos - 1)] = true;}
-        BOARD[(yPos - 1) * SIZE + xPos] = true;
-        if(xPos < (SIZE - 1)) {BOARD[(yPos - 1) * SIZE + (xPos + 1)] = true;}
+        if(xPos > 0 and BOARD[(yPos - 1) * SIZE + (xPos - 1)] == 0)
+        {
+            BOARD[(yPos - 1) * SIZE + (xPos - 1)] = ID;
+        }
+        if(BOARD[(yPos - 1) * SIZE + xPos] == 0)
+        {
+            BOARD[(yPos - 1) * SIZE + xPos] = ID;
+        }
+        if(xPos < (SIZE - 1) and BOARD[(yPos - 1) * SIZE + (xPos + 1)] == 0)
+        {
+            BOARD[(yPos - 1) * SIZE + (xPos + 1)] = ID;
+        }
     }
-    if(xPos > 0) {BOARD[yPos * SIZE + (xPos - 1)] = true;}
-    if(xPos < (SIZE - 1)) {BOARD[yPos * SIZE + (xPos + 1)] = true;}
+    if(xPos > 0 and BOARD[yPos * SIZE + (xPos - 1)] == 0)
+    {
+        BOARD[yPos * SIZE + (xPos - 1)] = ID;
+    }
+    if(xPos < (SIZE - 1) and BOARD[yPos * SIZE + (xPos + 1)] == 0)
+    {
+        BOARD[yPos * SIZE + (xPos + 1)] = ID;
+    }
     if(yPos < (SIZE - 1))
     {
-        if(xPos > 0) {BOARD[(yPos + 1) * SIZE + (xPos - 1)] = true;}
-        BOARD[(yPos + 1) * SIZE + xPos] = true;
-        if(xPos < (SIZE - 1)) {BOARD[(yPos + 1) * SIZE + (xPos + 1)] = true;}
+        if(xPos > 0 and BOARD[(yPos + 1) * SIZE + (xPos - 1)] == 0)
+        {
+            BOARD[(yPos + 1) * SIZE + (xPos - 1)] = ID;
+        }
+        if(BOARD[(yPos + 1) * SIZE + xPos] == 0)
+        {
+            BOARD[(yPos + 1) * SIZE + xPos] = ID;
+        }
+        if(xPos < (SIZE - 1) and BOARD[(yPos + 1) * SIZE + (xPos + 1)] == 0)
+        {
+            BOARD[(yPos + 1) * SIZE + (xPos + 1)] = ID;
+        }
     }
 }
