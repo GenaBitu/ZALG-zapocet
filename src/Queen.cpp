@@ -6,7 +6,7 @@ std::string Queen::toString()
     return "Q";
 }
 
-void Queen::check()
+void Queen::disable()
 {
     // Rook
     for(unsigned int i{0}; i < SIZE ; i++)

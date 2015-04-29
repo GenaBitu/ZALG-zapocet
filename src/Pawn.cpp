@@ -6,7 +6,7 @@ std::string Pawn::toString()
     return "P";
 }
 
-void Pawn::check()
+void Pawn::disable()
 {
     if(BOARD[yPos * SIZE + xPos] == 0)
     {

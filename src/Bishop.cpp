@@ -6,7 +6,7 @@ std::string Bishop::toString()
     return "B";
 }
 
-void Bishop::check()
+void Bishop::disable()
 {
     unsigned int start{0};
     if(yPos > xPos) {start = yPos - xPos;}

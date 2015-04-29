@@ -6,7 +6,7 @@ class Knight : public Piece
 public:
     std::string toString();
 private:
-    void check();
+    void disable();
 };
 
 #endif // KNIGHT_HPP

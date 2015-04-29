@@ -6,7 +6,7 @@ std::string King::toString()
     return "K";
 }
 
-void King::check()
+void King::disable()
 {
     if(BOARD[yPos * SIZE + xPos] == 0)
     {

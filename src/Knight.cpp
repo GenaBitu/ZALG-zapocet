@@ -6,7 +6,7 @@ std::string Knight::toString()
     return "H";     //H for horse, K is taken by King
 }
 
-void Knight::check()
+void Knight::disable()
 {
     if(BOARD[yPos * SIZE + xPos] == 0)
     {

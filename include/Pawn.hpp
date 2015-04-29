@@ -6,7 +6,7 @@ class Pawn : public Piece
 public:
     std::string toString();
 private:
-    void check();
+    void disable();
 };
 
 #endif // PAWN_HPP

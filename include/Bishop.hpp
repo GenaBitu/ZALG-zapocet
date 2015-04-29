@@ -6,7 +6,7 @@ class Bishop : public Piece
 public:
     std::string toString();
 private:
-    void check();
+    void disable();
 };
 
 #endif // BISHOP_HPP

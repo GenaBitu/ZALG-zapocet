@@ -6,7 +6,7 @@ class Queen : public Piece
 public:
     std::string toString();
 private:
-    void check();
+    void disable();
 };
 
 #endif // QUEEN_HPP

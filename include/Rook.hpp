@@ -6,7 +6,7 @@ class Rook : public Piece
 public:
     std::string toString();
 private:
-    void check();
+    void disable();
 };
 
 #endif // ROOK_HPP

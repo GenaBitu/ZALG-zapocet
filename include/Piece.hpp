@@ -20,7 +20,7 @@ protected:
     const unsigned int ID;
 private:
     static unsigned int usedIDs;
-    virtual void check() = 0;
+    virtual void disable() = 0;
 };
 
 #endif // PIECE_HPP

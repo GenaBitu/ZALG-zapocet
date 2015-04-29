@@ -17,7 +17,7 @@ void Piece::put(unsigned int xPosition, unsigned int yPosition)
     }
     xPos = xPosition;
     yPos = yPosition;
-    check();
+    disable();
 }
 
 void Piece::erase()

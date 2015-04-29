@@ -6,7 +6,7 @@ std::string Rook::toString()
     return "R";
 }
 
-void Rook::check()
+void Rook::disable()
 {
     for(unsigned int i{0}; i < SIZE ; i++)
     {
