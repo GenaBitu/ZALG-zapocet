@@ -6,6 +6,18 @@ std::string Pawn::toString()
     return "P";
 }
 
+bool Pawn::check()
+{
+    for(unsigned int i{1}; i < ID; i++)
+    {
+        if((PIECES[i]->yPos + 2 == yPos) and ((PIECES[i]->xPos + 1 == xPos) or (PIECES[i]->xPos == xPos + 1)))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 void Pawn::disable()
 {
     if(BOARD[yPos * SIZE + xPos] == 0)

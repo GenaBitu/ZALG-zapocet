@@ -6,6 +6,18 @@ std::string Knight::toString()
     return "H";     //H for horse, K is taken by King
 }
 
+bool Knight::check()
+{
+    for(unsigned int i{1}; i < ID; i++)
+    {
+        if(((PIECES[i]->xPos == xPos + 2) and ((PIECES[i]->yPos == yPos + 1) or (PIECES[i]->yPos + 1 == yPos))) or ((PIECES[i]->xPos == xPos + 1) and ((PIECES[i]->yPos == yPos + 2) or (PIECES[i]->yPos + 2 == yPos))) or ((PIECES[i]->xPos + 2 == xPos) and ((PIECES[i]->yPos == yPos + 1) or (PIECES[i]->yPos + 1 == yPos))) or ((PIECES[i]->xPos + 1 == xPos) and ((PIECES[i]->yPos == yPos + 2) or (PIECES[i]->yPos + 2 == yPos))))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 void Knight::disable()
 {
     if(BOARD[yPos * SIZE + xPos] == 0)

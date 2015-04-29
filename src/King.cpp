@@ -6,6 +6,18 @@ std::string King::toString()
     return "K";
 }
 
+bool King::check()
+{
+    for(unsigned int i{1}; i < ID; i++)
+    {
+        if((PIECES[i]->xPos + 1 >= xPos) and (PIECES[i]->xPos <= xPos + 1) and (PIECES[i]->yPos + 1 >= yPos) and (PIECES[i]->yPos <= yPos + 1))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 void King::disable()
 {
     if(BOARD[yPos * SIZE + xPos] == 0)

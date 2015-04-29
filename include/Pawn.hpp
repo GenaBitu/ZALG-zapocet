@@ -6,6 +6,7 @@ class Pawn : public Piece
 public:
     std::string toString();
 private:
+    bool check();
     void disable();
 };
 

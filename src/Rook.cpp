@@ -6,6 +6,18 @@ std::string Rook::toString()
     return "R";
 }
 
+bool Rook::check()
+{
+    for(unsigned int i{1}; i < ID; i++)
+    {
+        if((PIECES[i]->xPos == xPos) or (PIECES[i]->yPos == yPos))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 void Rook::disable()
 {
     for(unsigned int i{0}; i < SIZE ; i++)

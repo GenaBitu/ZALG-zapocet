@@ -33,7 +33,7 @@ void Piece::erase()
 
 bool Piece::tryPut(unsigned int xPosition, unsigned int yPosition)
 {
-    if(BOARD[yPosition * SIZE + xPosition] == 0)
+    if((BOARD[yPosition * SIZE + xPosition] == 0)/* and check()*/)
     {
         put(xPosition, yPosition);
         return true;

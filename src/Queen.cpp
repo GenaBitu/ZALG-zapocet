@@ -6,6 +6,20 @@ std::string Queen::toString()
     return "Q";
 }
 
+bool Queen::check()
+{
+    unsigned int diff = yPos - xPos;
+    unsigned int sum = yPos + xPos;
+    for(unsigned int i{1}; i < ID; i++)
+    {
+        if(((PIECES[i]->yPos - PIECES[i]->xPos) == diff) or ((PIECES[i]->yPos + PIECES[i]->xPos) == sum) or (PIECES[i]->xPos == xPos) or (PIECES[i]->yPos == yPos))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 void Queen::disable()
 {
     // Rook
@@ -34,7 +48,7 @@ void Queen::disable()
         }
     }
     start = 0;
-    if(SIZE < (xPos + yPos)) {start = xPos + yPos - SIZE;}
+    if(SIZE < (xPos + yPos + 1)) {start = xPos + yPos - SIZE + 1;}
     end = xPos + yPos + 1;
     if(end > SIZE) {end = SIZE;}
     for(unsigned int i{start}; i < end; i++)
