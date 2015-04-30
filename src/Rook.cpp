@@ -1,12 +1,12 @@
 #include "../Main.hpp"
 using namespace std;
 
-std::string Rook::toString()
+char Rook::toString() const
 {
-    return "R";
+    return 'R';
 }
 
-bool Rook::check(unsigned int xPosition, unsigned int yPosition)
+bool Rook::check(unsigned int xPosition, unsigned int yPosition) const
 {
     for(unsigned int i{0}; i < ID - 1; i++)
     {
@@ -18,7 +18,7 @@ bool Rook::check(unsigned int xPosition, unsigned int yPosition)
     return true;
 }
 
-void Rook::disable()
+void Rook::disable() const
 {
     for(unsigned int i{0}; i < SIZE ; i++)
     {

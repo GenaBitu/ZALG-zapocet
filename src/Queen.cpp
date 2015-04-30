@@ -1,12 +1,12 @@
 #include "../Main.hpp"
 using namespace std;
 
-std::string Queen::toString()
+char Queen::toString() const
 {
-    return "Q";
+    return 'Q';
 }
 
-bool Queen::check(unsigned int xPosition, unsigned int yPosition)
+bool Queen::check(unsigned int xPosition, unsigned int yPosition) const
 {
     unsigned int diff = yPosition - xPosition;
     unsigned int sum = yPosition + xPosition;
@@ -20,7 +20,7 @@ bool Queen::check(unsigned int xPosition, unsigned int yPosition)
     return true;
 }
 
-void Queen::disable()
+void Queen::disable() const
 {
     // Rook
     for(unsigned int i{0}; i < SIZE ; i++)

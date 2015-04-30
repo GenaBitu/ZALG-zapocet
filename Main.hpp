@@ -15,8 +15,8 @@ extern unsigned int SIZE;
 extern unsigned int* BOARD;
 extern std::vector<Piece*> PIECES;
 
-void printChecks();
-void printBoard();
+std::string printChecks();
+std::string printBoard();
 bool populate(unsigned int current = 0);
 
 #endif // MAIN_HPP

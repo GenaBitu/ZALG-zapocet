@@ -1,12 +1,12 @@
 #include "../Main.hpp"
 using namespace std;
 
-std::string Knight::toString()
+char Knight::toString() const
 {
-    return "H";     //H for horse, K is taken by King
+    return 'H';     //H for horse, K is taken by King
 }
 
-bool Knight::check(unsigned int xPosition, unsigned int yPosition)
+bool Knight::check(unsigned int xPosition, unsigned int yPosition) const
 {
     for(unsigned int i{0}; i < ID - 1; i++)
     {
@@ -18,7 +18,7 @@ bool Knight::check(unsigned int xPosition, unsigned int yPosition)
     return true;
 }
 
-void Knight::disable()
+void Knight::disable() const
 {
     if(BOARD[yPos * SIZE + xPos] == 0)
     {

@@ -11,7 +11,7 @@ public:
     Piece& operator= (Piece&&) = delete;
     unsigned int xPos;
     unsigned int yPos;
-    virtual std::string toString() = 0;
+    virtual char toString() const = 0;
     void put(unsigned int xPosition, unsigned int yPosition);
     void erase();
     bool tryPut(unsigned int xPosition, unsigned int yPosition);
@@ -20,8 +20,8 @@ protected:
     const unsigned int ID;
 private:
     static unsigned int usedIDs;
-    virtual bool check(unsigned int xPosition, unsigned int yPosition) = 0;
-    virtual void disable() = 0;
+    virtual bool check(unsigned int xPosition, unsigned int yPosition) const = 0;
+    virtual void disable() const = 0;
 };
 
 #endif // PIECE_HPP

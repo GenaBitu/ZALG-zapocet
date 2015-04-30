@@ -1,12 +1,12 @@
 #include "../Main.hpp"
 using namespace std;
 
-std::string Bishop::toString()
+char Bishop::toString() const
 {
-    return "B";
+    return 'B';
 }
 
-bool Bishop::check(unsigned int xPosition, unsigned int yPosition)
+bool Bishop::check(unsigned int xPosition, unsigned int yPosition) const
 {
     unsigned int diff = yPosition - xPosition;
     unsigned int sum = yPosition + xPosition;
@@ -20,7 +20,7 @@ bool Bishop::check(unsigned int xPosition, unsigned int yPosition)
     return true;
 }
 
-void Bishop::disable()
+void Bishop::disable() const
 {
     unsigned int start{0};
     if(yPos > xPos) {start = yPos - xPos;}

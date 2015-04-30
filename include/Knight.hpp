@@ -4,10 +4,10 @@
 class Knight : public Piece
 {
 public:
-    std::string toString();
+    char toString() const;
 private:
-    bool check(unsigned int xPosition, unsigned int yPosition);
-    void disable();
+    bool check(unsigned int xPosition, unsigned int yPosition) const;
+    void disable() const;
 };
 
 #endif // KNIGHT_HPP

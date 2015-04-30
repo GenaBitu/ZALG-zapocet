@@ -1,12 +1,12 @@
 #include "../Main.hpp"
 using namespace std;
 
-std::string Pawn::toString()
+char Pawn::toString() const
 {
-    return "P";
+    return 'P';
 }
 
-bool Pawn::check(unsigned int xPosition, unsigned int yPosition)
+bool Pawn::check(unsigned int xPosition, unsigned int yPosition) const
 {
     for(unsigned int i{0}; i < ID - 1; i++)
     {
@@ -18,7 +18,7 @@ bool Pawn::check(unsigned int xPosition, unsigned int yPosition)
     return true;
 }
 
-void Pawn::disable()
+void Pawn::disable() const
 {
     if(BOARD[yPos * SIZE + xPos] == 0)
     {

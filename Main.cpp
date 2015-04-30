@@ -5,28 +5,109 @@ unsigned int SIZE{8};
 unsigned int* BOARD = new unsigned int[SIZE * SIZE]{};
 std::vector<Piece*> PIECES;
 
-void printChecks()
+std::string printChecks()
 {
-    for(unsigned int i{0}; i < SIZE * SIZE; i++)
+    // Formated table
+    // Top row
+    string output{"\u250C"};
+    for(unsigned int i{0}; i < SIZE - 1; i++)
     {
-        if(BOARD[i] != 0) {cout << BOARD[i];}
-        else {cout << ".";}
-        if(((i + 1) % SIZE) == 0) {cout << endl;}
+        output += "\u2500\u2500\u2500\u252C";
     }
-}
-
-void printBoard()
-{
-    string output{};
+    // Last segment is always separate because last character differs
+    output += "\u2500\u2500\u2500\u2510\n";
+    // All but last rows, always row of values and a separator row
+    for(unsigned int i{0}; i < SIZE - 1; i++)
+    {
+        output += "\u2502";
+        for(unsigned int j{0}; j < SIZE; j++)
+        {
+            if(BOARD[i * SIZE + j] < 10){output += " ";}
+            output += to_string(BOARD[i * SIZE + j]);
+            if(BOARD[i * SIZE + j] < 100){output += " ";}
+            output += "\u2502";
+        }
+        output += "\n\u251C";
+        for(unsigned int j{0}; j < SIZE - 1; j++)
+        {
+            output += "\u2500\u2500\u2500\u253C";
+        }
+        output += "\u2500\u2500\u2500\u2524\n";
+    }
+    output += "\u2502";
+    // Last value row
     for(unsigned int i{0}; i < SIZE; i++)
     {
-        output.append(string(SIZE, '.') + '\n');
+        if(BOARD[SIZE * (SIZE - 1) + i] < 10){output += " ";}
+        output += to_string(BOARD[SIZE * (SIZE - 1) + i]);
+        if(BOARD[SIZE * (SIZE - 1) + i] < 100){output += " ";}
+        output += "\u2502";
+    }
+    // Final separator row
+    output += "\n\u2514";
+    for(unsigned int i{0}; i < SIZE - 1; i++)
+    {
+        output += "\u2500\u2500\u2500\u2534";
+    }
+    output += "\u2500\u2500\u2500\u2518";
+    return output;
+}
+
+std::string printBoard()
+{
+    // Piece table
+    char* PTable{new char[SIZE * SIZE]};
+    for(unsigned int i{0}; i < SIZE * SIZE; i++)
+    {
+        PTable[i] = ' ';
     }
     for(unsigned int i{0}; i < PIECES.size(); i++)
     {
-        output.replace(PIECES[i]->yPos * (SIZE + 1) + PIECES[i]->xPos, 1, PIECES[i]->toString());
+        PTable[PIECES[i]->yPos * SIZE + PIECES[i]->xPos] = PIECES[i]->toString();
     }
-    cout << output << endl;
+    
+    // Formated table
+    // Top row
+    string output{"\u250C"};
+    for(unsigned int i{0}; i < SIZE - 1; i++)
+    {
+        output += "\u2500\u2500\u2500\u252C";
+    }
+    // Last segment is always separate because last character differs
+    output += "\u2500\u2500\u2500\u2510\n";
+    // All but last rows, always row of values and a separator row
+    for(unsigned int i{0}; i < SIZE - 1; i++)
+    {
+        output += "\u2502";
+        for(unsigned int j{0}; j < SIZE; j++)
+        {
+            output += " ";
+            output += PTable[i * SIZE + j];
+            output += " \u2502";
+        }
+        output += "\n\u251C";
+        for(unsigned int j{0}; j < SIZE - 1; j++)
+        {
+            output += "\u2500\u2500\u2500\u253C";
+        }
+        output += "\u2500\u2500\u2500\u2524\n";
+    }
+    output += "\u2502";
+    // Last value row
+    for(unsigned int i{0}; i < SIZE; i++)
+    {
+        output += " ";
+        output += PTable[SIZE * (SIZE - 1) + i];
+        output += " \u2502";
+    }
+    // Final separator row
+    output += "\n\u2514";
+    for(unsigned int i{0}; i < SIZE - 1; i++)
+    {
+        output += "\u2500\u2500\u2500\u2534";
+    }
+    output += "\u2500\u2500\u2500\u2518";
+    return output;
 }
 
 bool populate(unsigned int current)
@@ -78,7 +159,7 @@ int main()
 
     bool success{populate()};
     cout << "Success: " << (success ? "yes" : "no") << endl;
-    if(success) {printBoard();}
+    if(success) {cout << printBoard() << endl;}
 
     for(unsigned int i{0}; i < PIECES.size(); i++)
     {

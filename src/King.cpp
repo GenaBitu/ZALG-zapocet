@@ -1,12 +1,12 @@
 #include "../Main.hpp"
 using namespace std;
 
-std::string King::toString()
+char King::toString() const
 {
-    return "K";
+    return 'K';
 }
 
-bool King::check(unsigned int xPosition, unsigned int yPosition)
+bool King::check(unsigned int xPosition, unsigned int yPosition) const
 {
     for(unsigned int i{0}; i < ID - 1; i++)
     {
@@ -18,7 +18,7 @@ bool King::check(unsigned int xPosition, unsigned int yPosition)
     return true;
 }
 
-void King::disable()
+void King::disable() const
 {
     if(BOARD[yPos * SIZE + xPos] == 0)
     {
