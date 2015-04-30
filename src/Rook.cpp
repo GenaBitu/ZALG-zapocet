@@ -6,11 +6,11 @@ std::string Rook::toString()
     return "R";
 }
 
-bool Rook::check()
+bool Rook::check(unsigned int xPosition, unsigned int yPosition)
 {
-    for(unsigned int i{1}; i < ID; i++)
+    for(unsigned int i{0}; i < ID - 1; i++)
     {
-        if((PIECES[i]->xPos == xPos) or (PIECES[i]->yPos == yPos))
+        if((PIECES[i]->xPos == xPosition) or (PIECES[i]->yPos == yPosition))
         {
             return false;
         }

@@ -20,7 +20,7 @@ protected:
     const unsigned int ID;
 private:
     static unsigned int usedIDs;
-    virtual bool check() = 0;
+    virtual bool check(unsigned int xPosition, unsigned int yPosition) = 0;
     virtual void disable() = 0;
 };
 

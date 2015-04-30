@@ -6,11 +6,11 @@ std::string Pawn::toString()
     return "P";
 }
 
-bool Pawn::check()
+bool Pawn::check(unsigned int xPosition, unsigned int yPosition)
 {
-    for(unsigned int i{1}; i < ID; i++)
+    for(unsigned int i{0}; i < ID - 1; i++)
     {
-        if((PIECES[i]->yPos + 2 == yPos) and ((PIECES[i]->xPos + 1 == xPos) or (PIECES[i]->xPos == xPos + 1)))
+        if((PIECES[i]->yPos + 1 == yPosition) and ((PIECES[i]->xPos + 1 == xPosition) or (PIECES[i]->xPos == xPosition + 1)))
         {
             return false;
         }

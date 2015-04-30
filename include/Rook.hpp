@@ -6,7 +6,7 @@ class Rook : public Piece
 public:
     std::string toString();
 private:
-    bool check();
+    bool check(unsigned int xPosition, unsigned int yPosition);
     void disable();
 };
 

@@ -6,11 +6,11 @@ std::string King::toString()
     return "K";
 }
 
-bool King::check()
+bool King::check(unsigned int xPosition, unsigned int yPosition)
 {
-    for(unsigned int i{1}; i < ID; i++)
+    for(unsigned int i{0}; i < ID - 1; i++)
     {
-        if((PIECES[i]->xPos + 1 >= xPos) and (PIECES[i]->xPos <= xPos + 1) and (PIECES[i]->yPos + 1 >= yPos) and (PIECES[i]->yPos <= yPos + 1))
+        if((PIECES[i]->xPos + 1 >= xPosition) and (PIECES[i]->xPos <= xPosition + 1) and (PIECES[i]->yPos + 1 >= yPosition) and (PIECES[i]->yPos <= yPosition + 1))
         {
             return false;
         }

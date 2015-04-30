@@ -56,10 +56,11 @@ bool populate(unsigned int current)
 
 int main()
 {
-    for (int i = 0; i < 8; i++) {
+    /*for (int i = 0; i < 8; i++) {
         PIECES.push_back(new Queen{});
-    }
-   /* PIECES.push_back(new Bishop{});
+    }*/
+    PIECES.push_back(new Queen{});
+    PIECES.push_back(new Bishop{});
     PIECES.push_back(new Bishop{});
     PIECES.push_back(new Rook{});
     PIECES.push_back(new Rook{});
@@ -73,7 +74,8 @@ int main()
     PIECES.push_back(new Pawn{});
     PIECES.push_back(new Pawn{});
     PIECES.push_back(new Pawn{});
-    PIECES.push_back(new Pawn{});*/
+    PIECES.push_back(new Pawn{});
+
     cout << "Success: " << populate() << endl;
     printBoard();
 

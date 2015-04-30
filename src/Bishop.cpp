@@ -6,11 +6,11 @@ std::string Bishop::toString()
     return "B";
 }
 
-bool Bishop::check()
+bool Bishop::check(unsigned int xPosition, unsigned int yPosition)
 {
-    unsigned int diff = yPos - xPos;
-    unsigned int sum = yPos + xPos;
-    for(unsigned int i{1}; i < ID; i++)
+    unsigned int diff = yPosition - xPosition;
+    unsigned int sum = yPosition + xPosition;
+    for(unsigned int i{0}; i < ID - 1; i++)
     {
         if(((PIECES[i]->yPos - PIECES[i]->xPos) == diff) or ((PIECES[i]->yPos + PIECES[i]->xPos) == sum))
         {
