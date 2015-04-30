@@ -76,8 +76,9 @@ int main()
     PIECES.push_back(new Pawn{});
     PIECES.push_back(new Pawn{});
 
-    cout << "Success: " << populate() << endl;
-    printBoard();
+    bool success{populate()};
+    cout << "Success: " << (success ? "yes" : "no") << endl;
+    if(success) {printBoard();}
 
     for(unsigned int i{0}; i < PIECES.size(); i++)
     {
